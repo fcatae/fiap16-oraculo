@@ -22,6 +22,7 @@ namespace ConsoleOraculo
         public string Pergunta(string id, string pergunta)
         {
             string mensagem = $"{id}: {pergunta}";
+            _db.KeyDelete(id);
             _pub.Publish(canal, mensagem);
 
             return mensagem;
